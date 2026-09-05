@@ -1,1 +1,80 @@
+.task-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
 
+.task-card {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.task-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.task-card label {
+    display: block;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 7px;
+}
+
+.task-card input,
+.task-card textarea,
+.task-card select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.task-card textarea {
+    resize: vertical;
+}
+
+.task-card input:focus,
+.task-card textarea:focus,
+.task-card select:focus {
+    outline: none;
+    border-color: #555;
+}
+
+.task-card button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.task-card button:hover {
+    background: #555;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
