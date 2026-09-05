@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-import mysql.connector
+import psycopg2
+import os
 
 app = Flask(__name__)
 app.secret_key = "taskflow_secret_key"
