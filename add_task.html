@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Task - TaskFlow</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='add_task.css') }}">
+</head>
+
+<body>
+
+    <div class="task-container">
+
+        <div class="task-card">
+
+            <h1>Add New Task 📝</h1>
+            <p class="subtitle">
+                Organize your work and stay productive
+            </p>
+
+            <form method="POST">
+
+                <label>Task Title</label>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter task title"
+                    required
+                >
+
+
+                <label>Description</label>
+                <textarea
+                    name="description"
+                    placeholder="Describe your task"
+                    rows="4"
+                ></textarea>
+
+
+                <label>Category</label>
+                <input
+                    type="text"
+                    name="category"
+                    placeholder="Example: Study, Work, Personal"
+                >
+
+
+                <label>Priority</label>
+                <select name="priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+
+                <label>Due Date</label>
+                <input
+                    type="date"
+                    name="due_date"
+                >
+
+
+                <button type="submit">
+                    + Add Task
+                </button>
+
+            </form>
+
+            <a href="{{ url_for('dashboard') }}" class="back-link">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

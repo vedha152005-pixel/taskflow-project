@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - TaskFlow</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>TaskFlow</h1>
+
+        <a href="{{ url_for('logout') }}">
+            <button class="logout-btn">Logout</button>
+        </a>
+    </div>
+
+
+    <div class="container">
+
+        <h2>Your Tasks</h2>
+
+
+        <!-- Filter and Search Section -->
+        <div class="controls">
+
+            <div class="filter-section">
+
+                <h3>Filter Tasks</h3>
+
+                <a href="/dashboard">
+                    <button>All</button>
+                </a>
+
+                <a href="/dashboard?status=Pending">
+                    <button>Pending</button>
+                </a>
+
+                <a href="/dashboard?status=Completed">
+                    <button>Completed</button>
+                </a>
+
+            </div>
+
+
+            <!-- Search Tasks -->
+            <div class="search-section">
+
+                <h3>Search Tasks</h3>
+
+                <form action="/dashboard" method="GET">
+
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search by title or category"
+                        value="{{ search or '' }}"
+                    >
+
+                    <button type="submit">Search</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- Add Task -->
+        <a href="/add-task">
+            <button class="add-btn">+ Add New Task</button>
+        </a>
+
+
+        <!-- Tasks -->
+        <div class="task-container">
+
+            {% if tasks %}
+
+                {% for task in tasks %}
+
+                    <div class="task-card">
+
+                        <div class="task-header">
+
+                            <h3>{{ task.title }}</h3>
+
+                            <span class="status {{ task.status }}">
+                                {{ task.status }}
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            <strong>Description:</strong>
+                            {{ task.description }}
+                        </p>
+
+                        <p>
+                            <strong>Category:</strong>
+                            {{ task.category }}
+                        </p>
+
+                        <p>
+                            <strong>Priority:</strong>
+                            {{ task.priority }}
+                        </p>
+
+                        <p>
+                            <strong>Due Date:</strong>
+                            {{ task.due_date }}
+                        </p>
+
+
+                        <!-- Task Actions -->
+                        <div class="task-actions">
+
+                            {% if task.status == "Pending" %}
+
+                                <a href="/complete-task/{{ task.id }}">
+                                    <button class="complete-btn">
+                                        Complete
+                                    </button>
+                                </a>
+
+                            {% else %}
+
+                                <span class="completed-text">
+                                    Completed ✅
+                                </span>
+
+                            {% endif %}
+
+
+                            <a href="/edit-task/{{ task.id }}">
+                                <button class="edit-btn">
+                                    Edit
+                                </button>
+                            </a>
+
+
+                            <a href="/delete-task/{{ task.id }}">
+                                <button class="delete-btn">
+                                    Delete
+                                </button>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p class="no-tasks">
+                    No tasks available.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>
