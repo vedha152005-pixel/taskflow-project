@@ -10,16 +10,7 @@ app.secret_key = "taskflow_secret_key"
 # DATABASE CONNECTION
 # =========================
 def get_db_connection():
-
-    connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Vedha@232115",
-        database="taskflow_db"
-    )
-
-    return connection
-
+    return psycopg2.connect(os.environ["DATABASE_URL"])
 
 # =========================
 # HOME PAGE
