@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TaskFlow - Manage Your Tasks</title>
 
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="home-container">
+
+        <div class="home-card">
+
+            <h1>TaskFlow</h1>
+
+            <h2>Manage Your Tasks Easily</h2>
+
+            <p>
+                Organize your daily tasks, track progress,
+                and stay productive.
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">
+                        Login
+                    </button>
+                </a>
+
+                <a href="{{ url_for('register') }}">
+                    <button class="register-btn">
+                        Create Account
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
